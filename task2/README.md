@@ -1,14 +1,30 @@
-## 🧠 Task 2 – Image & Video Segmentation using YOLOv8
-This task focuses on applying YOLOv8 segmentation to both a set of static images and video frames. The goal is to practice object segmentation on real-world inputs and build end-to-end workflows using Ultralytics YOLOv8.
+# Task 2: Image and Video Segmentation using YOLOv8
 
-✅ What I Did
-- Performed segmentation on multiple local images using YOLOv8n-seg.pt
-- Downloaded a 20-second street video from Kaggle
-- Extracted video frames using FFmpeg
-- Applied YOLOv8 segmentation to all frames
-- Reconstructed the segmented frames into a new video using FFmpeg
-- Maintained a clean folder structure and modularized the task into two notebooks
+## Objective
+Perform segmentation on a batch of local images and video frames using YOLOv8. This task includes both image-wise and frame-wise segmentation, saving the outputs for further processing or reconstruction.
 
-📌 Output
-- Segmented images stored in output_images/
-- Segmented video saved in output_video/segmented_output.mp4
+## Tools and Libraries Used
+- Python  
+- Ultralytics YOLOv8  
+- OS module for directory handling
+
+## Files Description
+
+### segment_custom_images.py
+- Performs segmentation on a predefined list of local images stored in `input_images/`.
+- Saves segmented outputs to `output_images/`.
+
+### segment_video_frames.py
+- Loads individual frames from the `frames/` folder.
+- Applies YOLOv8 segmentation to each frame.
+- Saves results to `segmented_frames/`.
+
+## Output
+- Segmented images and frames are saved locally.
+- Final output video can be created using `ffmpeg` by combining the segmented frames from `segmented_frames/`.
+
+## Note
+- Place all input images and video frames in their respective folders before running the scripts.
+- Use `ffmpeg` or any preferred tool for:
+  - Extracting frames from a video into the `frames/` folder
+  - Reconstructing segmented frames into a video inside `output_video/`
